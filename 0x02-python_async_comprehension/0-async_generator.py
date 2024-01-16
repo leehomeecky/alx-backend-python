@@ -1,18 +1,14 @@
 #!/usr/bin/env python3
-""" Write a coroutine called async_generator
-that takes no arguments."""
-
+'''Task 0's module.
+'''
 import asyncio
-from typing import List
-import time
 import random
+from typing import Generator
 
 
-async def async_generator() -> float:
-    """ Write a coroutine called async_generator
-    that takes no arguments."""
-    i = 0
-    while (i < 10):
-        yield random.uniform(0, 10)
+async def async_generator() -> Generator[float, None, None]:
+    '''Generates a sequence of 10 numbers.
+    '''
+    for _ in range(10):
         await asyncio.sleep(1)
-        i += 1
+        yield random.random() * 10
